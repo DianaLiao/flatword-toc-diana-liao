@@ -1,0 +1,36 @@
+<%= turbo_frame_tag "contents" do %>
+  <% if defined? front_matter %>
+    <% front_matter.each do |item| %>
+      <div class="front_matter">
+        <%= link_to item["ordinal_name"], url + item["element_id"] + "/preview" %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if defined? chapters %>
+    <ul>
+      <% chapters.each do |item| %>
+        <li class="chapter">
+          <span class="ordinal">
+            <%= item["ordinal"] %>
+          </span>
+          <%= link_to item["ordinal_name"], url + item["element_id"] + "/preview" %>
+            <%= item["title"]%>
+            <% if item["sections"].present? %>
+              <ul>
+                <% item["sections"].each do |section| %>
+                  <li class="section">
+                    <span class="section_ordinal">
+                      <%= section["ordinal"] %>
+                    </span>
+                    <%= link_to section["ordinal_name"], url + section["element_id"] + "/preview" %>
+                    <%= section["title"]%>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
