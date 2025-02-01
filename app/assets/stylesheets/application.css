@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+li.front_matter {
+  padding: 10px;
+  font-size: large;
+  list-style: none;
+}
+
+li.chapter {
+  list-style: none;
+}
+
+li.section {
+  list-style-type: circle;
+}
+
+span.ordinal {
+  font-weight: 1000;
+}
+
+a:hover {
+  background-color: rgb(70, 215, 215);
+}

@@ -1,23 +1,25 @@
 <%= turbo_frame_tag "contents" do %>
   <% if defined? front_matter %>
-    <% front_matter.each do |item| %>
-      <div class="front_matter">
-        <%= link_to item["title"], url + item["element_id"] + "/preview" %>
-        <% if item["sections"].present? %>
-              <ul>
-                <% item["sections"].each do |section| %>
-                  <li class="section">
-                    <span class="front_matter_section_ordinal">
-                      <%= section["ordinal"] %>
-                    </span>
-                    <%= link_to section["ordinal_name"], url + section["element_id"] + "/preview" %>
-                    <%= section["title"]%>
-                  </li>
-                <% end %>
-              </ul>
-            <% end %>
-      </div>
-    <% end %>
+    <ul>
+      <% front_matter.each do |item| %>
+        <li class="front_matter">
+          <%= link_to item["title"], url + item["element_id"] + "/preview" %>
+          <% if item["sections"].present? %>
+                <ul>
+                  <% item["sections"].each do |section| %>
+                    <li class="section">
+                      <span class="front_matter_section_ordinal">
+                        <%= section["ordinal"] %>
+                      </span>
+                      <%= link_to section["ordinal_name"], url + section["element_id"] + "/preview" %>
+                      <%= section["title"]%>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
 
   <% if defined? chapters %>
