@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "search" do %>
   <%= form_with url: "/toc", method: :get, data: { turbo_frame: "contents" } do |form| %>
-    <%= form.label :book_id, "Enter Book ID (e.g. 35880):" %>
+    <%= form.label :book_id, "Enter Book ID (e.g. 234, 4353, 35880):" %>
     <%= form.number_field :book_id %>
     <%= form.submit "Load Table of Contents" %>
   <% end %>

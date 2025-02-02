@@ -1,4 +1,12 @@
 <%= turbo_frame_tag "contents" do %>
+
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+  <% flash.clear %>
+
   <% if defined? front_matter %>
     <ul>
       <% front_matter.each do |item| %>

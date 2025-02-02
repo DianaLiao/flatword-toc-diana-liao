@@ -6,6 +6,10 @@ class TocFetcher
   end
 
   def get_json
-    RestClient.get(BASE_TOC_URL + "#{@book_id}.json")
+    begin
+      RestClient.get(BASE_TOC_URL + "#{@book_id}.json")
+    rescue RestClient::ExceptionWithResponse => e
+      e.response
+    end
   end
 end
